@@ -38,6 +38,10 @@ const Styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
   },
+  radioButtonGroup: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
   calcButton: {
     alignSelf: "center",
   },
@@ -63,9 +67,9 @@ export const MyLightTheme = StyleSheet.create({
     containerColor: "#e14545",
   },
   radioButton: {
-    unchecked: 'grey',
-    color: '#e14545',
-  }
+    unchecked: "grey",
+    color: "#e14545",
+  },
 });
 
 export const MyDarkTheme = StyleSheet.create({
@@ -90,7 +94,7 @@ export const MyDarkTheme = StyleSheet.create({
     color: "white",
   },
   radioButton: {
-    unchecked: 'grey',
-    color: '#e14545',
-  }
+    unchecked: "grey",
+    color: "#e14545",
+  },
 });

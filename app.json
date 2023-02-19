@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "alcometer",
+    "name": "Alcometer",
     "slug": "alcometer",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/beer.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "image": "./assets/splash_beer.png",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -22,12 +22,19 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/beer_ic.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.bheniamyn.alcometer"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1c7d4e5c-2a16-41e7-be89-5b84f988306c"
+      }
+    },
+    "owner": "bheniamyn"
   }
 }

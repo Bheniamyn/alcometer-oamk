@@ -1,23 +1,19 @@
+import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from "react";
-import { Alert, Pressable, ScrollView, Switch } from "react-native";
-import { SaveAreaView } from "react-native";
-import { StyleSheet, View } from "react-native";
+import { useState } from "react";
+import { Alert, Pressable, ScrollView, View } from "react-native";
 import NumericInput from "react-native-numeric-input";
 import {
   Button,
-  FAB,
-  RadioButton,
-  TextInput,
-  Text,
   configureFonts,
   DefaultTheme,
   MD3DarkTheme,
   MD3LightTheme,
   Provider,
+  RadioButton,
+  Text,
+  TextInput,
 } from "react-native-paper";
-import { useFonts } from "expo-font";
-import { TouchableOpacity } from "react-native";
 import { MyDarkTheme, MyLightTheme } from "./styles/Styles";
 
 export default function App() {
@@ -46,7 +42,10 @@ export default function App() {
       showError("Please set a weight first!");
       return;
     }
-
+    if (weight < 50) {
+      showError("Please input a weight above 50kg!");
+      return;
+    }
     if (!gender) {
       showError("Please select a gender first!");
       return;
@@ -133,7 +132,7 @@ export default function App() {
                 style={MyStyle.buttonLabel}
                 onPress={() => setIsDark(!isDark)}
               >
-                {isDark ? "🌙" : "🌞"}
+                {isDark ? "🌞" : "🌚"}
               </Text>
             </Pressable>
           </View>
@@ -174,7 +173,7 @@ export default function App() {
           </View>
           <RadioButton.Group onValueChange={(v) => setGender(v)} value={gender}>
             <View
-              style={{ flexDirection: "row", justifyContent: "space-evenly" }}
+              style={MyStyle.radioButtonGroup}
             >
               <RadioSelection value={"m"} label="Male" />
               <RadioSelection value={"f"} label="Female" />
@@ -191,9 +190,9 @@ export default function App() {
                       ? isDark
                         ? "white"
                         : "black"
-                      : alcoholLevel <= 1
+                      : alcoholLevel <= 0.5
                       ? "#03B5AA"
-                      : alcoholLevel > 1 && alcoholLevel <= 2
+                      : alcoholLevel > 0.5 && alcoholLevel <= 1
                       ? "#FFB400"
                       : "#AF1D1D",
                 },
@@ -205,7 +204,7 @@ export default function App() {
           <Button
             mode="contained"
             style={MyStyle.calcButton}
-            onPress={() => doCalculation()}
+            onPress={doCalculation}
           >
             Calculate
           </Button>
